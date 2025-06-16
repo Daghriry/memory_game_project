@@ -1,0 +1,265 @@
+/* تعيين الخصائص الأساسية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    direction: rtl;
+    text-align: right;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 0 auto;
+}
+
+/* تنسيق الشاشات */
+.screen {
+    text-align: center;
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+h1 {
+    color: #ff6b6b;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #4d96ff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.instructions {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* تنسيق الأزرار */
+.btn {
+    background-color: #4d96ff;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    font-family: 'Tajawal', sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    background-color: #3a7bd5;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.small-btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+/* تنسيق اختيار المستوى */
+.level-selection {
+    margin: 30px 0;
+}
+
+.level-btn {
+    background-color: #ffbe76;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.level-btn:hover {
+    background-color: #f0932b;
+}
+
+.level-btn.active {
+    background-color: #f0932b;
+    box-shadow: 0 0 0 3px rgba(240, 147, 43, 0.3);
+}
+
+/* تنسيق لوحة اللعب */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.attempts {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4d96ff;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+/* تنسيق البطاقات */
+.card {
+    aspect-ratio: 1/1;
+    background-color: #4d96ff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-front {
+    background-color: #fff;
+    transform: rotateY(180deg);
+}
+
+.card-back {
+    background-color: #4d96ff;
+    background-image: linear-gradient(45deg, #4d96ff 25%, #5ca0ff 25%, #5ca0ff 50%, #4d96ff 50%, #4d96ff 75%, #5ca0ff 75%, #5ca0ff);
+    background-size: 20px 20px;
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card.matched {
+    transform: rotateY(180deg);
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.card img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+/* تنسيق شاشة النهاية */
+.congrats {
+    color: #ff6b6b;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+.result {
+    font-size: 1.3rem;
+    margin: 20px 0 30px;
+    color: #666;
+}
+
+#final-attempts {
+    font-weight: bold;
+    color: #4d96ff;
+    font-size: 1.5rem;
+}
+
+/* الرسوم المتحركة */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* تحسينات للأجهزة المحمولة */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    .game-board {
+        gap: 8px;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .game-header .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .attempts {
+        margin-bottom: 10px;
+    }
+}

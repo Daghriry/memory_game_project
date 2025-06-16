@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>لعبة الذاكرة</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- خط عربي من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- شاشة البداية -->
+        <div id="start-screen" class="screen">
+            <h1>لعبة الذاكرة</h1>
+            <p class="instructions">اعثر على الأزواج المتطابقة من البطاقات</p>
+            
+            <div class="level-selection">
+                <h2>اختر المستوى:</h2>
+                <button id="easy-level" class="level-btn">سهل</button>
+                <button id="medium-level" class="level-btn">متوسط</button>
+            </div>
+            
+            <button id="start-game" class="btn">ابدأ اللعب</button>
+        </div>
+        
+        <!-- شاشة اللعب -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <div class="attempts">المحاولات: <span id="attempts">0</span></div>
+                <button id="restart-game" class="btn small-btn">إعادة اللعب</button>
+                <button id="back-to-menu" class="btn small-btn">القائمة الرئيسية</button>
+            </div>
+            
+            <div id="game-board" class="game-board"></div>
+        </div>
+        
+        <!-- شاشة النهاية -->
+        <div id="end-screen" class="screen hidden">
+            <h1 class="congrats">أحسنت!</h1>
+            <div class="result">
+                <p>لقد أكملت اللعبة بـ <span id="final-attempts">0</span> محاولة</p>
+            </div>
+            <button id="play-again" class="btn">العب مرة أخرى</button>
+            <button id="back-to-menu-end" class="btn">القائمة الرئيسية</button>
+        </div>
+    </div>
+    
+    <!-- صوت النجاح -->
+    <audio id="success-sound" src="https://assets.mixkit.co/active_storage/sfx/2000/2000-preview.mp3" preload="auto"></audio>
+    
+    <script src="js/game.js"></script>
+</body>
+</html>
